@@ -1,0 +1,26 @@
+language: node_js
+node_js:
+  - 8
+cache:
+  directories:
+    - node_modules
+script:
+  - npm run prettier -- --list-different &&
+    npm run build-css &&
+    npm run build &&
+    npm test -- --coverage
+after_success:
+  - cat ./coverage/lcov.info | coveralls
+before_deploy:
+  - npm run set-snapshot-version $TRAVIS_BUILD_NUMBER
+deploy:
+  skip_cleanup: true
+  provider: npm
+  email: agutierr@redhat.com
+  api_key:
+    secure: Cco3cBHBxw0KQTPEyYLlOFHLwo0K6Pytaa70U0XtSkFSeNE0o8v9Lohm1SYRETWpdvjs1r/8a4ISHUIRi45JwcIwlBxsrFga1hqx5+bHABsUyL81uGbdRB2hDDpdyfPMGE4VNCbfcZzpxBNlyv/CwyhJ7f9ijYwnjYHDa+NBQqiwcDVsqkKroT8Do48lJuF7D3IjtRqFuLh7CbVFGAE8OUgbPiWipd813/USzmflMJUZmvpEe3IdzVcfdno8gVQ6PThfAE2fZMqSvHCimtM0r+dyPXVPo8mPoU/R31/vZCJlM7AghQbgevx3QCrjdWo4gszdEtVGR4+YpRy0+PpsIjIoaI4jKtSg22T7xa9dyazrgMVIVm++r4Ou2e1x2W1DFVGk5abweOHwdCCi451UsmP0UelbJ6DtSzPJwMAN9j5o5qkUEi+zt37/aMvIdcSp7KwLGHMKZS5cbeKbpJB8eFB1hd5zBwNworj6p+dHACnSQxgcQr3YtBfCTPbw6qvB3vu/Gn9q02sH4XGIllGlFm6eTAnyCaX/hTE/bYJiHS9cm5RsFBqeAWtiPCaNFslmax2RoYASx+O0Ln3DyI2GkGxHCpEQS/pVwpTziyDQY3OkqXASEIhwBMHlewuxpnzig/OF1+nKlubT06NcKbJnLEgfvRpmLUAytbn3p6cBnV4=
+  on:
+    branch: master
+    repo: ManageF/ui
+after_deploy:
+- 'curl -s -X POST -H "Content-Type: application/json" -H "Accept: application/json" -H "Travis-API-Version: 3" -H "Authorization: token $TRAVIS_TOKEN" -d "{\"request\":{\"message\": \"Triggered by ui change: $TRAVIS_COMMIT\", \"branch\":\"master\"}}" https://api.travis-ci.org/repo/managef/api/requests'

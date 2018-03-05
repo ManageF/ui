@@ -1,0 +1,64 @@
+{
+  "name": "managef-ui",
+  "version": "0.1.1",
+  "dependencies": {
+    "axios": "~0.17.1",
+    "axios-mock-adapter": "~1.12.0",
+    "patternfly": "~3.38.1",
+    "patternfly-react": "~1.8.2",
+    "prettier": "^1.11.1",
+    "react": "~16.2.0",
+    "react-bootstrap": "~0.32.1",
+    "react-dom": "~16.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts-ts": "2.13.0"
+  },
+  "scripts": {
+    "copy-fonts": "cp -r node_modules/patternfly/dist/fonts src/",
+    "copy-img": "cp -r node_modules/patternfly/dist/img src/",
+    "build-css": "node-sass-chokidar src/ --output-style compressed $npm_package_sassIncludes_src $npm_package_sassIncludes_patternfly $npm_package_sassIncludes_patternflyReact $npm_package_sassIncludes_bootstrap $npm_package_sassIncludes_fontAwesome -o src/",
+    "prettier": "prettier --single-quote --parser typescript --print-width 120 --write \"src/**/*.{js,jsx,ts,tsx,json}\"",
+    "lint": "tslint --project ./tsconfig.json",
+    "start": "npm run copy-fonts && npm run copy-img && npm run build-css && npm run prettier && react-scripts-ts start",
+    "build": "npm run copy-fonts && npm run copy-img && npm run build-css && npm run prettier && react-scripts-ts build",
+    "test": "npm run prettier && react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject",
+    "set-snapshot-version": "npm-snapshot"
+  },
+  "devDependencies": {
+    "@types/enzyme": "^3.1.9",
+    "@types/jest": "~22.1.1",
+    "@types/lodash": "~4.14.103",
+    "@types/node": "~9.4.0",
+    "@types/react": "~16.0.36",
+    "@types/react-dom": "~16.0.3",
+    "@types/react-router-dom": "^4.2.4",
+    "babel-core": "^6.26.0",
+    "coveralls": "^3.0.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "node-sass-chokidar": "0.0.3",
+    "npm-snapshot": "^1.0.3",
+    "typescript": "~2.7.1"
+  },
+  "sassIncludes": {
+    "src": "--include-path src",
+    "patternfly": "--include-path node_modules/patternfly/dist/sass",
+    "patternflyReact": "--include-path node_modules/patternfly-react/dist/sass",
+    "bootstrap": "--include-path node_modules/patternfly/node_modules/bootstrap-sass/assets/stylesheets",
+    "fontAwesome": "--include-path node_modules/patternfly/node_modules/font-awesome-sass/assets/stylesheets"
+  },
+  "description": "React UI for [ManageF](https://github.com/managef).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/managef/ui.git"
+  },
+  "keywords": [
+    "consumption",
+    "monitoring"
+  ],
+  "author": "Red Hat",
+  "license": "Apache-2.0",
+  "homepage": "/"
+}
