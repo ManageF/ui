@@ -21,6 +21,6 @@ deploy:
     secure: QmpNuIMYKyLfgb4efPFRyFU7CuDZkjdJGxADBwO0zaPtRX5jnyBLNCjaMRk4j7YkzN6M7cvSg3o8aArwlvYQtRz81Do+9RkdKYE5xM3KSp7R63flskkwapRQ/NTCi+jWgcPtH8r6Cb0gYYwlQUrn3pqgUmlOZqKe1Xu1J7EBJa8kA+Pwwvi2wBfOGelxcxLqLr2wCIJAsNKSJEVdLKEoa0U81cZkKBd1CX2UhGpNs1BuLrH0mA3ecLDRBDW2ptqSRIphKcPk/dto9QNVIjIqEJGNqQxwyIIzIjIdorS0K2eLcmUeG3lC1c8Q/uYvqUrK5jgJFLHPJWspJeGubxuHbNk2WuwC6pJ+wUAnUWwIDBB27xps3P22Xsf4QnHDxvgLFw4OunltPG4IfDTuqTKzBgsqUplUHPgYPN0zaUhY2ypQ0+CBnKfNwj8WzBETYGgt3JXQtIKIPH4q7QdXrtE2ZzDxwqruwVHu31h50A3UPI7iiZmpEPPjyK+/l7z4YecTe3bMM8R0IsoCM3PpMQqoK3va89P6jnUz/Altb1TERAtGj9VGFg5IvUieii3sb/jcQhq1Y7E7YEQv3MMbh2vuvL9E1vNKoG4Uef4dSivOr3nmcmFLfxLyck8detOJhcBMNL5VLHQdszARdtOAmEF6Xbjom+FdAOtAwTfKv1LAty8=
   on:
     branch: master
-    repo: swift-sunshine/swsui
+    repo: managef/ui
 after_deploy:
 - 'curl -s -X POST -H "Content-Type: application/json" -H "Accept: application/json" -H "Travis-API-Version: 3" -H "Authorization: token $TRAVIS_TOKEN" -d "{\"request\":{\"message\": \"Triggered by ui change: $TRAVIS_COMMIT\", \"branch\":\"master\"}}" https://api.travis-ci.org/repo/managef/api/requests'
