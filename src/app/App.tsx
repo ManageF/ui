@@ -8,8 +8,8 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          <p className="App-intro"/>
-          <div style={{display: 'flex', justifyContent: 'center'}}>
+          <p className="App-intro" />
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
             <img src={logo} className="App-logo" alt="logo" />
             <h1 className="App-title">Welcome to React</h1>
           </div>
