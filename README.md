@@ -15,11 +15,11 @@ Read the [guides](https://github.com/managef/guides) of the project.
 
 
 ## Quick Start
-[source,shell]
-----
+
+```bash
 npm install
 npm start
-----
+```
 
 A new browser window should automatically open.
 But, if it doesn't then use:
