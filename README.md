@@ -4,8 +4,7 @@
 toc::[]
 
 = UI
-image:https://travis-ci.org/ManageF/ui.svg?branch=master[Travis Status, link=https://travis-ci.org/ManageF/ui]
-image:https:/coveralls.io/repos/github/ManageF/ui/badge.svg?branch=master[Coverage Status, link=https://coveralls.io/github/ManageF/ui?branch=master]
+image:https://travis-ci.org/ManageF/ui.svg?branch=master[Travis Status, link=https://travis-ci.org/ManageF/ui] image:https:/coveralls.io/repos/github/ManageF/ui/badge.svg?branch=master[Coverage Status, link=https://coveralls.io/github/ManageF/ui?branch=master]
 
 == Introduction
 
